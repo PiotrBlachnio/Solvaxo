@@ -1,6 +1,5 @@
 #include "test.h"
 
-
 std::vector<std::vector<int>> convertStringToVector(std::string input) {
     std::vector<std::vector<int>> output;
     int currentCharIndex = 0;
