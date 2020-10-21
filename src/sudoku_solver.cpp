@@ -1,13 +1,11 @@
-#include <vector>
+#include "sudoku_solver.h"
 
-class SudokuSolver {
-    const std::vector<std::vector<int>> board;
+SudokuSolver::SudokuSolver(std::vector<std::vector<int>> board) {
+    board = board;
+}
 
-    SudokuSolver(std::vector<std::vector<int>> board) {
-        board = board;
-    }
+std::vector<std::vector<int>> SudokuSolver::solve() {
+    std::vector<std::vector<int>> solvedBoard;
 
-    std::vector<std::vector<int>> solve() {
-        
-    }
-};
+    return solvedBoard;
+}
