@@ -1,4 +1,4 @@
-#include "test.h"
+#include "test-utils.h"
 
 std::vector<std::vector<int>> convertStringToBoard(std::string input) {
     std::vector<std::vector<int>> output;
