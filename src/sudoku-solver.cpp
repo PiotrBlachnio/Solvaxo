@@ -10,15 +10,17 @@ std::vector<std::vector<int>> SudokuSolver::solve() {
     return solvedBoard;
 }
 
-Square SudokuSolver::findEmptySquare() {
+Square* SudokuSolver::findEmptySquare() {
     for(int rowIndex = 0; rowIndex < board.size(); rowIndex++) {
         for(int columnIndex = 0; columnIndex < board[rowIndex].size(); columnIndex++) {
             if(board[rowIndex][columnIndex] != 0) continue;
 
             Square square(rowIndex, columnIndex);
-            return square;
+            return &square;
         }
     }
+
+    return NULL;
 }
 
 bool SudokuSolver::isSquareValid(Square square) {

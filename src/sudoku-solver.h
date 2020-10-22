@@ -11,7 +11,7 @@
         private:
             const std::vector<std::vector<int>> board;
 
-            Square findEmptySquare();
+            Square* findEmptySquare();
 
             bool isSquareValid(Square square);
 
