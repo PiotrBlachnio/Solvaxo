@@ -47,4 +47,20 @@ bool SudokuSolver::isColumnValid(int columnIndex, int number) {
 
     return true;
 }
+
+bool SudokuSolver::isGridValid(Square square, int number) {
+    int gridY = (square.row + 1) / 3;
+    int gridX = (square.column + 1) / 3; // TODO: Move it to external method
+
+    for(int rowIndex = gridY; rowIndex < gridY + 4; rowIndex++) {
+        for(int columnIndex = gridX; columnIndex < gridX + 4; columnIndex++) {
+            int selectedNumber = board[rowIndex][columnIndex];
+
+            if(number == selectedNumber) return false;
+        }
+    }
+
+    return true;
+}
+
 //TODO: isSquareValid method

@@ -18,6 +18,8 @@
             bool isRowValid(int rowIndex, int number);
 
             bool isColumnValid(int columnIndex, int number);
+
+            bool isGridValid(Square square, int number);
     };
 
     struct Square {
