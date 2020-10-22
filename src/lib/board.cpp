@@ -14,7 +14,7 @@ void Board::printBoard() {
     }
 }
 
-std::vector<std::vector<int>> convertStringToBoard(std::string input) {
+std::vector<std::vector<int>> Board::convertStringToBoard(std::string input) {
     std::vector<std::vector<int>> output;
     int currentCharIndex = 0;
 

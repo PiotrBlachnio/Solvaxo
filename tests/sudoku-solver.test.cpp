@@ -1,5 +1,4 @@
-#include "test-utils.h"
-#include "sudoku-solver.test.h"
+#include "test.h"
 #include "../src/sudoku-solver.h"
 
 // TEST_CASE("Sudoku solver") {
