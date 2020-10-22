@@ -38,4 +38,13 @@ bool SudokuSolver::isRowValid(int rowIndex, int number) {
     return true;
 }
 
+bool SudokuSolver::isColumnValid(int columnIndex, int number) {
+    for(int rowIndex = 0; rowIndex < board.size(); rowIndex++) {
+        int square = board[rowIndex][columnIndex];
+
+        if(square == number) return false;
+    }
+
+    return true;
+}
 //TODO: isSquareValid method

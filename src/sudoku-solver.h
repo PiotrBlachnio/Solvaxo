@@ -16,6 +16,8 @@
             bool isSquareValid(Square square);
 
             bool isRowValid(int rowIndex, int number);
+
+            bool isColumnValid(int columnIndex, int number);
     };
 
     struct Square {
