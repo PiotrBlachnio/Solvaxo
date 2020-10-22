@@ -1,4 +1,4 @@
-#include "sudoku_solver.h"
+#include "sudoku-solver.h"
 
 SudokuSolver::SudokuSolver(std::vector<std::vector<int>> board) {
     board = board;
@@ -10,5 +10,6 @@ std::vector<std::vector<int>> SudokuSolver::solve() {
     return solvedBoard;
 }
 
-//TODO: Rename test to utils and consider renaming sudoku_solver_test.cpp
+//TODO: Create custom checker for vectors
 //TODO: Find empty square method
+//TODO: isSquareValid method
