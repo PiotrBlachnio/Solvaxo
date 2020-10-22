@@ -21,5 +21,21 @@ Square SudokuSolver::findEmptySquare() {
     }
 }
 
-//TODO: Find empty square method
+bool SudokuSolver::isSquareValid(Square square) {
+    /*
+        Check:
+            - Row
+            - Column
+            - Grid
+    */
+}
+
+bool SudokuSolver::isRowValid(int rowIndex, int number) {   
+    for(int square : board[rowIndex]) {
+        if(square == number) return false;
+    }
+
+    return true;
+}
+
 //TODO: isSquareValid method

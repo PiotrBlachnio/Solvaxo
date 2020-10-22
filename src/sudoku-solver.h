@@ -12,6 +12,10 @@
             const std::vector<std::vector<int>> board;
 
             Square findEmptySquare();
+
+            bool isSquareValid(Square square);
+
+            bool isRowValid(int rowIndex, int number);
     };
 
     struct Square {
