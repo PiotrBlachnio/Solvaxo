@@ -1,11 +1,11 @@
-test: SolutionTests.o Solution.o
-	g++ SolutionTests.o Solution.o -o test
+test: sudoku_solver_test.o test.o
+	g++ sudoku_solver_test.o test.o -o test
 
-SolutionTests.o: tests/SolutionTests.cpp
-	g++ -c tests/SolutionTests.cpp
+sudoku_solver_test.o: tests/sudoku_solver_test.cpp
+	g++ -c tests/sudoku_solver_test.cpp
 
-Solution.o: src/Solution.cpp
-	g++ -c src/Solution.cpp
+test.o: tests/test.cpp
+	g++ -c tests/test.cpp
 
 clean:
 	rm *.o test.exe

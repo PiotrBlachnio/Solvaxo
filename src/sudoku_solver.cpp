@@ -9,3 +9,6 @@ std::vector<std::vector<int>> SudokuSolver::solve() {
 
     return solvedBoard;
 }
+
+//TODO: Rename test to utils and consider renaming sudoku_solver_test.cpp
+//TODO: Find empty square method
