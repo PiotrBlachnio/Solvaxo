@@ -5,11 +5,23 @@
 
     class SudokuSolver {
         public:
-            const std::vector<std::vector<int>> board;
-            
             SudokuSolver(std::vector<std::vector<int>> board);
 
             std::vector<std::vector<int>> solve();
+        private:
+            const std::vector<std::vector<int>> board;
+
+            Square findEmptySquare();
+    };
+
+    struct Square {
+        int row;
+        int column;
+
+        Square(int row, int column) {
+            row = row;
+            column = column;
+        }
     };
 
 #endif

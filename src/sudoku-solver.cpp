@@ -10,6 +10,16 @@ std::vector<std::vector<int>> SudokuSolver::solve() {
     return solvedBoard;
 }
 
-//TODO: Create custom checker for vectors
+Square SudokuSolver::findEmptySquare() {
+    for(int rowIndex = 0; rowIndex < board.size(); rowIndex++) {
+        for(int columnIndex = 0; columnIndex < board[rowIndex].size(); columnIndex++) {
+            if(board[rowIndex][columnIndex] != 0) continue;
+
+            Square square(rowIndex, columnIndex);
+            return square;
+        }
+    }
+}
+
 //TODO: Find empty square method
 //TODO: isSquareValid method
