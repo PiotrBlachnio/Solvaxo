@@ -8,7 +8,7 @@ std::vector<std::vector<int>> convertStringToVector(std::string input) {
         std::vector<int> row;
 
         for(int j = 0; j < 9; j++) {
-            row.push_back(input[currentCharIndex]);
+            row.push_back((int) input[currentCharIndex] - 48);
             currentCharIndex++;
         }
 
