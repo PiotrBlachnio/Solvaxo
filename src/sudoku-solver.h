@@ -2,6 +2,7 @@
 #define SUDOKU_SOLVER_H
 
     #include <vector>
+    #include "lib/square.h"
 
     class SudokuSolver {
         public:
@@ -20,16 +21,6 @@
             bool isColumnValid(int columnIndex, int number);
 
             bool isGridValid(Square square, int number);
-    };
-
-    struct Square {
-        int row;
-        int column;
-
-        Square(int row, int column) {
-            row = row;
-            column = column;
-        }
     };
 
 #endif
