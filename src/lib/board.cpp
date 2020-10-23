@@ -1,6 +1,14 @@
 #include "board.h"
+#include "exception.h"
 
 Board::Board(std::string boardString) {
+    if(boardString.size() != 81) {
+        std::string message = 
+            "Invalid number of characters in the board string. Expected: " +
+            std::to_string(BOARD_SQUARES_NUMBER) +
+            ". Received: " + std;
+        throw Exception();
+    }
     board = convertStringToBoard(boardString);
 }
 

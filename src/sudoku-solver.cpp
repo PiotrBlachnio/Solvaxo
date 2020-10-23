@@ -66,3 +66,5 @@ bool SudokuSolver::isGridValid(Square square, int number) {
 }
 
 //TODO: isSquareValid method
+//TODO: Convert private fields to _
+//TODO: Create custom exception (with defined messages)

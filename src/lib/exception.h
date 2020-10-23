@@ -8,11 +8,11 @@
 
     class Exception extends std::exception {
         public:
-            Exception(char* message) {}
+            Exception(std::string message) {}
 
             virtual const char* what() const throw();
         private:
-            char* _message;
+            std::string _message;
     };
 
 #endif
