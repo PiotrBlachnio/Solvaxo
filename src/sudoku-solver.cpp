@@ -1,5 +1,10 @@
 #include "sudoku-solver.h"
 
+//TODO: Replace _board.getData() by _board.data
+//TODO: Add more methods to square.cpp
+//TODO: Refactor sudoku-solver.cpp
+//TODO: Create isSquareValid method
+
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
 std::string SudokuSolver::solve() {
@@ -7,9 +12,9 @@ std::string SudokuSolver::solve() {
 }
 
 Square* SudokuSolver::findEmptySquare() {
-    for(int rowIndex = 0; rowIndex < _board.getBoard().size(); rowIndex++) {
-        for(int columnIndex = 0; columnIndex < board[rowIndex].size(); columnIndex++) {
-            if(board[rowIndex][columnIndex] != 0) continue;
+    for(int rowIndex = 0; rowIndex < _board.getData().size(); rowIndex++) {
+        for(int columnIndex = 0; columnIndex < _board.getData()[rowIndex].size(); columnIndex++) {
+            if(_board.getData()[rowIndex][columnIndex] != 0) continue;
 
             Square square(rowIndex, columnIndex);
             return &square;
@@ -29,7 +34,7 @@ bool SudokuSolver::isSquareValid(Square square) {
 }
 
 bool SudokuSolver::isRowValid(int rowIndex, int number) {   
-    for(int square : board[rowIndex]) {
+    for(int square : _board.getData()[rowIndex]) {
         if(square == number) return false;
     }
 
@@ -37,8 +42,8 @@ bool SudokuSolver::isRowValid(int rowIndex, int number) {
 }
 
 bool SudokuSolver::isColumnValid(int columnIndex, int number) {
-    for(int rowIndex = 0; rowIndex < board.size(); rowIndex++) {
-        int square = board[rowIndex][columnIndex];
+    for(int rowIndex = 0; rowIndex < _board.getData().size(); rowIndex++) {
+        int square = _board.getData()[rowIndex][columnIndex];
 
         if(square == number) return false;
     }
@@ -52,7 +57,7 @@ bool SudokuSolver::isGridValid(Square square, int number) {
 
     for(int rowIndex = gridY; rowIndex < gridY + 4; rowIndex++) {
         for(int columnIndex = gridX; columnIndex < gridX + 4; columnIndex++) {
-            int selectedNumber = board[rowIndex][columnIndex];
+            int selectedNumber = _board.getData()[rowIndex][columnIndex];
 
             if(number == selectedNumber) return false;
         }
@@ -60,7 +65,3 @@ bool SudokuSolver::isGridValid(Square square, int number) {
 
     return true;
 }
-
-//TODO: isSquareValid method
-//TODO: Convert private fields to _
-//TODO: Create custom exception (with defined messages)

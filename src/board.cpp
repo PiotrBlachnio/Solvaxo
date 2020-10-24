@@ -9,15 +9,11 @@ Board::Board(std::string boardString) {
     convertStringToBoard(boardString);
 }
 
-std::vector<std::vector<int>> Board::getBoard() {
-    return _board;
-}
-
 void Board::printBoard() {
-    for(int rowIndex = 0; rowIndex < _board.size(); rowIndex++) {
+    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++) {
         if(rowIndex != 0) std::cout << "\n - - - - - - - - -\n";
 
-        for(int square : _board[rowIndex]) {
+        for(int square : data[rowIndex]) {
             std::cout << square << " ";
         }
     }
@@ -34,7 +30,7 @@ void Board::convertStringToBoard(std::string input) {
             currentCharIndex++;
         }
 
-        _board.push_back(row);
+        data.push_back(row);
     }
 }
 

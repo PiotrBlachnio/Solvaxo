@@ -10,14 +10,13 @@
     struct Board {
         Board(std::string boardString);
 
-        std::vector<std::vector<int>> getBoard();
+        std::vector<std::vector<int>> data;
+
         void printBoard();
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;
             const static int ASCII_CODE_BASE = 48;
-
-            std::vector<std::vector<int>> _board;
 
             void convertStringToBoard(std::string boardString);
             bool isNumerical(std::string input);
