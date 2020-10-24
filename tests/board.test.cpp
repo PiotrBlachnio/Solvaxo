@@ -30,7 +30,13 @@ TEST_CASE("Board") {
         }
 
         SECTION("Should throw an exception when board string has an invalid number of characters") {
-            std::string input = "30542081048790150602905637485079304161320895707406528024130906550867019209651240d";
+            std::string input = "30542081048790150602905637485079304";
+
+            CHECK_THROWS_AS(Board(input), InvalidBoardStringException);
+        }
+
+        SECTION("Should throw an exception when board string contains forbidden characters") {
+            std::string input = "305420810487901506fsfsg320895707406dadag50867019209651240d";
 
             CHECK_THROWS_AS(Board(input), InvalidBoardStringException);
         }
