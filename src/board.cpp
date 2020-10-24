@@ -6,17 +6,17 @@
 Board::Board(std::string boardString) {
     int charactersNumber = boardString.size();
 
-    if(charactersNumber != 81) throw InvalidBoardStringException();
+    if(charactersNumber != BOARD_CHARACTERS_NUMBER) throw InvalidBoardStringException();
     if(!isNumerical(boardString)) throw InvalidBoardStringException();
 
     _board = convertStringToBoard(boardString);
 }
 
 void Board::printBoard() {
-    for(int index = 0; index < _board.size(); index++) {
-        if(index != 0) std::cout << "\n - - - - - - - - -\n";
+    for(int rowIndex = 0; rowIndex < _board.size(); rowIndex++) {
+        if(rowIndex != 0) std::cout << "\n - - - - - - - - -\n";
 
-        for(int square : _board[index]) {
+        for(int square : _board[rowIndex]) {
             std::cout << square << " ";
         }
     }

@@ -12,7 +12,9 @@
 
         void printBoard();
 
-        private:   
+        private:
+            const static int BOARD_CHARACTERS_NUMBER = 81;
+            
             std::vector<std::vector<int>> _board;
 
             std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
