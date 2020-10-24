@@ -24,12 +24,7 @@ Square* SudokuSolver::findEmptySquare() {
 }
 
 bool SudokuSolver::isSquareValid(Square square) {
-    /*
-        Check:
-            - Row
-            - Column
-            - Grid
-    */
+    bool IsRowValid = isRowValid(square.row,);
 }
 
 bool SudokuSolver::isRowValid(int rowIndex, int number) {   

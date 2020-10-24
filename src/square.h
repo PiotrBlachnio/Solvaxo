@@ -2,10 +2,11 @@
 #define SQUARE_H
  
     struct Square {
-        int row;
-        int column;
+        int number;
+        int rowIndex;
+        int columnIndex;
 
-        Square(int row, int column);
+        Square(int number, int rowIndex, int columnIndex);
     };
 
 #endif
