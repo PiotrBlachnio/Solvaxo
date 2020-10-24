@@ -1,10 +1,7 @@
 #include "sudoku-solver.h"
 
 SudokuSolver::SudokuSolver(std::string boardString) {
-    _board = Board("");
-    // Board board(boardString);
-    
-    // _board = board;
+    _board.setBoard(boardString);
 }
 
 std::string SudokuSolver::solve() {
