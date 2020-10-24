@@ -1,6 +1,5 @@
 #include "sudoku-solver.h"
 
-//TODO: Replace _board.getData() by _board.data
 //TODO: Add more methods to square.cpp
 //TODO: Refactor sudoku-solver.cpp
 //TODO: Create isSquareValid method
@@ -12,9 +11,9 @@ std::string SudokuSolver::solve() {
 }
 
 Square* SudokuSolver::findEmptySquare() {
-    for(int rowIndex = 0; rowIndex < _board.getData().size(); rowIndex++) {
-        for(int columnIndex = 0; columnIndex < _board.getData()[rowIndex].size(); columnIndex++) {
-            if(_board.getData()[rowIndex][columnIndex] != 0) continue;
+    for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
+        for(int columnIndex = 0; columnIndex < _board.data[rowIndex].size(); columnIndex++) {
+            if(_board.data[rowIndex][columnIndex] != 0) continue;
 
             Square square(rowIndex, columnIndex);
             return &square;
@@ -34,7 +33,7 @@ bool SudokuSolver::isSquareValid(Square square) {
 }
 
 bool SudokuSolver::isRowValid(int rowIndex, int number) {   
-    for(int square : _board.getData()[rowIndex]) {
+    for(int square : _board.data[rowIndex]) {
         if(square == number) return false;
     }
 
@@ -42,8 +41,8 @@ bool SudokuSolver::isRowValid(int rowIndex, int number) {
 }
 
 bool SudokuSolver::isColumnValid(int columnIndex, int number) {
-    for(int rowIndex = 0; rowIndex < _board.getData().size(); rowIndex++) {
-        int square = _board.getData()[rowIndex][columnIndex];
+    for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
+        int square = _board.data[rowIndex][columnIndex];
 
         if(square == number) return false;
     }
@@ -57,7 +56,7 @@ bool SudokuSolver::isGridValid(Square square, int number) {
 
     for(int rowIndex = gridY; rowIndex < gridY + 4; rowIndex++) {
         for(int columnIndex = gridX; columnIndex < gridX + 4; columnIndex++) {
-            int selectedNumber = _board.getData()[rowIndex][columnIndex];
+            int selectedNumber = _board.data[rowIndex][columnIndex];
 
             if(number == selectedNumber) return false;
         }

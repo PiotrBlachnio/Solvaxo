@@ -23,7 +23,7 @@ TEST_CASE("Board") {
                 std::vector<int> {0,9,6,5,1,2,4,0,8}
             };
 
-            std::vector<std::vector<int>> actual = board._board;
+            std::vector<std::vector<int>> actual = board.data;
 
             REQUIRE(expected == actual);
         }
