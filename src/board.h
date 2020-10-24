@@ -8,8 +8,9 @@
     #include <regex>
     
     struct Board {
+        Board(std::string boardString);
+
         std::vector<std::vector<int>> getBoard();
-        void setBoard(std::string boardString);
         void printBoard();
 
         private:

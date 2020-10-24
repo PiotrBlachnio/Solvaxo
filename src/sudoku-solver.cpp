@@ -1,15 +1,13 @@
 #include "sudoku-solver.h"
 
-SudokuSolver::SudokuSolver(std::string boardString) {
-    _board.setBoard(boardString);
-}
+SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
 std::string SudokuSolver::solve() {
     return "";
 }
 
 Square* SudokuSolver::findEmptySquare() {
-    for(int rowIndex = 0; rowIndex < _board.size(); rowIndex++) {
+    for(int rowIndex = 0; rowIndex < _board.getBoard().size(); rowIndex++) {
         for(int columnIndex = 0; columnIndex < board[rowIndex].size(); columnIndex++) {
             if(board[rowIndex][columnIndex] != 0) continue;
 
