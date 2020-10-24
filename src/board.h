@@ -16,6 +16,7 @@
             std::vector<std::vector<int>> _board;
 
             std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
+            bool isNumerical(std::string input);
     };
 
 #endif

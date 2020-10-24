@@ -4,14 +4,10 @@
 #include <regex>
 
 Board::Board(std::string boardString) {
-    std::smatch matches;
-    std::regex reg("^[0-9]*$");
-
-
     int charactersNumber = boardString.size();
 
     if(charactersNumber != 81) throw InvalidBoardStringException();
-    if(!std::regex_search(boardString, matches, reg)) throw InvalidBoardStringException();
+    if(!isNumerical(boardString)) throw InvalidBoardStringException();
 
     _board = convertStringToBoard(boardString);
 }
@@ -42,4 +38,11 @@ std::vector<std::vector<int>> Board::convertStringToBoard(std::string input) {
     }
 
     return output;
+}
+
+bool Board::isNumerical(std::string input) {
+    std::smatch match;
+    std::regex reg("^[0-9]*$");
+
+    return std::regex_search(input, match, reg);
 }
