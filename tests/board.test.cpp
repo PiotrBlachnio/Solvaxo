@@ -42,7 +42,23 @@ TEST_CASE("Board") {
         }
     }
 
-    SECTION("ConvertStringToBoard") {
-        
+    SECTION("IsNumerical") {
+        Board board("305420810487901506029056374850793041613208957074065280241309065508670192096512408");
+
+        SECTION("Should return true if string doesn't contain any non-numerical characters") {
+            std::string input = "5801617858190611";
+
+            bool actual = board.isNumerical(input);
+
+            REQUIRE(actual);
+        }
+
+        SECTION("Should return false if string contains non-numerical characters") {
+            std::string input = "571fadatp1313e";
+
+            bool actual = board.isNumerical(input);
+
+            REQUIRE_FALSE(actual);
+        }
     }
 }

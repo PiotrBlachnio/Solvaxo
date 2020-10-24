@@ -3,4 +3,4 @@
 .vscode/
 googletest/
 build/
-lib/
+# lib/
