@@ -2,7 +2,7 @@
 #define SUDOKU_SOLVER_H
 
     #include <vector>
-    #include "lib/square.h"
+    #include "square.h"
 
     class SudokuSolver {
         public:

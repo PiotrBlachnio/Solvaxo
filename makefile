@@ -1,5 +1,5 @@
 test: 
-	g++ tests/sudoku-solver.test.cpp src/*.cpp src/lib/*.cpp -o test.exe
+	g++ tests/*.cpp src/*.cpp src/exceptions/*.cpp -o test.exe
 
 clean:
 	rm *.o test.exe

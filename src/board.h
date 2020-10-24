@@ -12,10 +12,8 @@
 
         void printBoard();
 
-        private:
-            const static int BOARD_SQUARES_NUMBER = 81;
-            
-            std::vector<std::vector<int>> board;
+        private:   
+            std::vector<std::vector<int>> _board;
 
             std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
     };

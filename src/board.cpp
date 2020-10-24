@@ -1,22 +1,26 @@
 #include "board.h"
-#include "exception.h"
+#include "exceptions/invalid-board-string.exception.h"
+
+#include <regex>
 
 Board::Board(std::string boardString) {
-    if(boardString.size() != 81) {
-        std::string message = 
-            "Invalid number of characters in the board string. Expected: " +
-            std::to_string(BOARD_SQUARES_NUMBER) +
-            ". Received: " + std;
-        throw Exception();
-    }
-    board = convertStringToBoard(boardString);
+    std::smatch matches;
+    std::regex reg("^[0-9]*$");
+
+
+    int charactersNumber = boardString.size();
+
+    if(charactersNumber != 81) throw InvalidBoardStringException();
+    if(!std::regex_search(boardString, matches, reg)) throw InvalidBoardStringException();
+
+    _board = convertStringToBoard(boardString);
 }
 
 void Board::printBoard() {
-    for(int index = 0; index < board.size(); index++) {
+    for(int index = 0; index < _board.size(); index++) {
         if(index != 0) std::cout << "\n - - - - - - - - -\n";
 
-        for(int square : board[index]) {
+        for(int square : _board[index]) {
             std::cout << square << " ";
         }
     }
