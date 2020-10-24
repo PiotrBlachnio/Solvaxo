@@ -2,15 +2,17 @@
 #define SUDOKU_SOLVER_H
 
     #include <vector>
+    #include <string>
     #include "square.h"
+    #include "board.h"
 
     class SudokuSolver {
         public:
-            SudokuSolver(std::vector<std::vector<int>> board);
+            SudokuSolver(std::string boardString);
 
-            std::vector<std::vector<int>> solve();
+            std::string solve();
         private:
-            const std::vector<std::vector<int>> board;
+            Board _board;
 
             Square* findEmptySquare();
 

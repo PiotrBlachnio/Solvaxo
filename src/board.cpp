@@ -1,12 +1,18 @@
 #include "board.h"
 
-Board::Board(std::string boardString) {
+Board::Board(std::string boardString = SKIP_CONTRUCTOR_CHARACTER) {
+    if(boardString == SKIP_CONTRUCTOR_CHARACTER) return;
+    
     int charactersNumber = boardString.size();
 
     if(charactersNumber != BOARD_CHARACTERS_NUMBER) throw InvalidBoardStringException();
     if(!isNumerical(boardString)) throw InvalidBoardStringException();
 
     convertStringToBoard(boardString);
+}
+
+std::vector<std::vector<int>> Board::getBoard() {
+    return _board;
 }
 
 void Board::printBoard() {

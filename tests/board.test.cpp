@@ -1,10 +1,9 @@
-#include "test.h"
-
 #define private public
 #include "../src/board.h"
 #undef private
 
 #include "../src/exceptions/invalid-board-string.exception.h"
+#include "test.h"
 
 TEST_CASE("Board") {
     SECTION("Constructor") {

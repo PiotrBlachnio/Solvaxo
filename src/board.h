@@ -11,10 +11,11 @@
         Board(std::string boardString);
 
         std::vector<std::vector<int>> getBoard();
-
+        void setBoard(std::string boardString);
         void printBoard();
 
         private:
+            inline static const std::string SKIP_CONTRUCTOR_CHARACTER = "_";
             const static int BOARD_CHARACTERS_NUMBER = 81;
             const static int ASCII_CODE_BASE = 48;
 
