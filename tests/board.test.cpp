@@ -41,4 +41,8 @@ TEST_CASE("Board") {
             CHECK_THROWS_AS(Board(input), InvalidBoardStringException);
         }
     }
+
+    SECTION("ConvertStringToBoard") {
+        
+    }
 }
