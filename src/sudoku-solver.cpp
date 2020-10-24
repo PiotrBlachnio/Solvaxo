@@ -15,7 +15,7 @@ Square* SudokuSolver::findEmptySquare() {
         for(int columnIndex = 0; columnIndex < _board.data[rowIndex].size(); columnIndex++) {
             if(_board.data[rowIndex][columnIndex] != 0) continue;
 
-            Square square(rowIndex, columnIndex);
+            Square square(0, rowIndex, columnIndex);
             return &square;
         }
     }
@@ -24,22 +24,26 @@ Square* SudokuSolver::findEmptySquare() {
 }
 
 bool SudokuSolver::isSquareValid(Square square) {
-    bool IsRowValid = isRowValid(square.row,);
+    return true;
 }
 
-bool SudokuSolver::isRowValid(int rowIndex, int number) {   
-    for(int square : _board.data[rowIndex]) {
-        if(square == number) return false;
+bool SudokuSolver::isRowValid(Square square) {
+    std::vector<int> columns = _board.data[square.rowIndex];
+
+    for(int currentColumnIndex = 0; currentColumnIndex < columns.size(); currentColumnIndex++) {
+        int number = columns[currentColumnIndex];
+
+        if(number == square.number && currentColumnIndex != square.columnIndex) return false;
     }
 
     return true;
 }
 
-bool SudokuSolver::isColumnValid(int columnIndex, int number) {
+bool SudokuSolver::isColumnValid(Square square) {
     for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
-        int square = _board.data[rowIndex][columnIndex];
+        int number = _board.data[rowIndex][square.columnIndex];
 
-        if(square == number) return false;
+        if(number == square.number) return false;
     }
 
     return true;

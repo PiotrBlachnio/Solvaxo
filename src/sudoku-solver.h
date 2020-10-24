@@ -18,9 +18,9 @@
 
             bool isSquareValid(Square square);
 
-            bool isRowValid(int rowIndex, int number);
+            bool isRowValid(Square square);
 
-            bool isColumnValid(int columnIndex, int number);
+            bool isColumnValid(Square square);
 
             bool isGridValid(Square square, int number);
     };
