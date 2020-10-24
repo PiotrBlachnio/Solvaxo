@@ -22,7 +22,7 @@
 
             bool isColumnValid(Square square);
 
-            bool isGridValid(Square square, int number);
+            bool isGridValid(Square square);
     };
 
 #endif
