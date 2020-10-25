@@ -15,6 +15,7 @@
 
         void printBoard();
         void addSquare(Square square);
+        std::string convertBoardToString();
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;

@@ -4,17 +4,29 @@
 
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
-void SudokuSolver::solve() {
+bool SudokuSolver::solve() {
+    int num = 29;
+    int* pointer = &num;
+
+    *pointer = 30;
+
     Square* foundSquare = findEmptySquare();
     if(foundSquare == NULL) return;
 
     for(int number = 1; number <= 9; number++) {
         foundSquare->number = number;
 
-        if(isSquareValid(square)) {
-            _board.
+        if(isSquareValid(*foundSquare)) {
+            _board.addSquare(*foundSquare);
+
+            if(solve()) return true;
+
+            foundSquare->number = 0;
+            _board.addSquare(*foundSquare);
         }
     }
+
+    return false;
 }
 
 Square* SudokuSolver::findEmptySquare() {
