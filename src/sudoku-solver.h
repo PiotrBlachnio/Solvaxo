@@ -10,7 +10,7 @@
         public:
             SudokuSolver(std::string boardString);
 
-            std::string solve();
+            void solve();
         private:
             Board _board;
 

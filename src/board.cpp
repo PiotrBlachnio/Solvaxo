@@ -19,6 +19,10 @@ void Board::printBoard() {
     }
 }
 
+void Board::addSquare(Square square) {
+    data[square.rowIndex][square.columnIndex] = square.number;
+}
+
 void Board::convertStringToBoard(std::string input) {
     int currentCharIndex = 0;
 

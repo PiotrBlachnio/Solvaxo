@@ -2,6 +2,7 @@
 #define BOARD_H
  
     #include "exceptions/invalid-board-string.exception.h"
+    #include "square.h"
     #include <vector>
     #include <string>
     #include <iostream>
@@ -13,6 +14,7 @@
         std::vector<std::vector<int>> data;
 
         void printBoard();
+        void addSquare(Square square);
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;

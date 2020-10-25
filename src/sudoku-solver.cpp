@@ -1,13 +1,20 @@
 #include "sudoku-solver.h"
 
-//TODO: Add more methods to square.cpp
 //TODO: Refactor sudoku-solver.cpp
-//TODO: Create isSquareValid method
 
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
-std::string SudokuSolver::solve() {
-    return "";
+void SudokuSolver::solve() {
+    Square* foundSquare = findEmptySquare();
+    if(foundSquare == NULL) return;
+
+    for(int number = 1; number <= 9; number++) {
+        foundSquare->number = number;
+
+        if(isSquareValid(square)) {
+            _board.
+        }
+    }
 }
 
 Square* SudokuSolver::findEmptySquare() {
@@ -24,7 +31,7 @@ Square* SudokuSolver::findEmptySquare() {
 }
 
 bool SudokuSolver::isSquareValid(Square square) {
-    return true;
+    return isRowValid(square) && isColumnValid(square) && isGridValid(square);
 }
 
 bool SudokuSolver::isRowValid(Square square) {
