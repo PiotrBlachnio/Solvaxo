@@ -1,8 +1,8 @@
 #ifndef ROW_VALIDATOR_H
 #define ROW_VALIDATOR_H
 
-    #include "square.h"
     #include "board.h"
+    #include "square.h"
 
     class RowValidator {
         public:

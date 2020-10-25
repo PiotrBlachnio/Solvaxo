@@ -3,8 +3,8 @@
 
     #include <vector>
     #include <string>
-    #include "square.h"
     #include "board.h"
+    #include "square.h"
 
     class SudokuSolver {
         public:

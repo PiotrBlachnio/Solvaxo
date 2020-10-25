@@ -1,7 +1,4 @@
-#define private public
 #include "../src/sudoku-solver.h"
-#undef private
-
 #include "test.h"
 
 TEST_CASE("Sudoku solver") {
