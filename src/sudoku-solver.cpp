@@ -16,7 +16,7 @@ bool SudokuSolver::solve() {
     for(int i = 1; i <= 9; i++) {
         square->number = i;
 
-        if(isSquareValid(*square)) {
+        if(square->isValid(_board)) {
             _board.addSquare(*square);
 
             if(solve()) return true;
@@ -40,45 +40,4 @@ std::optional<Square> SudokuSolver::findEmptySquare() {
     }
 
     return {};
-}
-
-bool SudokuSolver::isSquareValid(Square square) {
-    return isRowValid(square) && isColumnValid(square) && isGridValid(square);
-}
-
-bool SudokuSolver::isRowValid(Square square) {
-    std::vector<int> columns = _board.data[square.rowIndex];
-
-    for(int columnIndex = 0; columnIndex < columns.size(); columnIndex++) {
-        int number = columns[columnIndex];
-
-        if(number == square.number && columnIndex != square.columnIndex) return false;
-    }
-
-    return true;
-}
-
-bool SudokuSolver::isColumnValid(Square square) {
-    for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
-        int number = _board.data[rowIndex][square.columnIndex];
-
-        if(number == square.number && rowIndex != square.rowIndex) return false;
-    }
-
-    return true;
-}
-
-bool SudokuSolver::isGridValid(Square square) {
-    int gridY = (square.rowIndex + 1) / 3;
-    int gridX = (square.columnIndex + 1) / 3; // TODO: Move it to external method
-
-    for(int rowIndex = gridY; rowIndex < gridY + 4; rowIndex++) {
-        for(int columnIndex = gridX; columnIndex < gridX + 4; columnIndex++) {
-            int selectedNumber = _board.data[rowIndex][columnIndex];
-
-            if(selectedNumber == square.number && (rowIndex != square.rowIndex || columnIndex != square.columnIndex)) return false;
-        }
-    }
-
-    return true;
 }

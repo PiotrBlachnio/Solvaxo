@@ -17,14 +17,6 @@
             Board _board;
 
             std::optional<Square> findEmptySquare();
-
-            bool isSquareValid(Square square);
-
-            bool isRowValid(Square square);
-
-            bool isColumnValid(Square square);
-
-            bool isGridValid(Square square);
     };
 
 #endif
