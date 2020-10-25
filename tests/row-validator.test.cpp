@@ -1,4 +1,5 @@
-#include "test.h"
+#define CATCH_CONFIG_MAIN
+#include "../lib/catch.h"
 #include "../src/row-validator.h"
 #include "../src/board.h"
 #include "../src/square.h"
