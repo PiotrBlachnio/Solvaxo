@@ -6,7 +6,7 @@
 
     class ColumnValidator {
         public:
-            bool isColumnValid(Square square, Board board);
+            static bool isColumnValid(Square square, Board board);
     };
 
 #endif

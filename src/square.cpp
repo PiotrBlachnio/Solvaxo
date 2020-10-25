@@ -5,3 +5,7 @@ Square::Square(int number, int rowIndex, int columnIndex) {
     this->rowIndex = rowIndex;
     this->columnIndex = columnIndex;
 }
+
+bool Square::isValid(Board board) {
+    
+}

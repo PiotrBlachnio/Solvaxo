@@ -6,7 +6,7 @@
 
     class GridValidator {
         public:
-            bool isGridValid(Square square, Board board);
+            static bool isGridValid(Square square, Board board);
     };
 
 #endif

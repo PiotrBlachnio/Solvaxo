@@ -6,7 +6,7 @@
 
     class RowValidator {
         public:
-            bool isRowValid(Square square, Board board);
+            static bool isRowValid(Square square, Board board);
     };
 
 #endif

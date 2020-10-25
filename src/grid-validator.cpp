@@ -1,6 +1,6 @@
 #include "grid-validator.h"
 
-bool GridValidator::isGridValid(Square square, Board board) {
+static bool GridValidator::isGridValid(Square square, Board board) {
     int gridY = (square.rowIndex + 1) / 3;
     int gridX = (square.columnIndex + 1) / 3; // TODO: Move it to external method
 
