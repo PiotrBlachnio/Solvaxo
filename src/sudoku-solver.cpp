@@ -4,6 +4,10 @@
 
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
+std::string SudokuSolver::getSolutionString() {
+    return _board.convertBoardToString();
+}
+
 bool SudokuSolver::solve() {
     std::optional<Square> square = findEmptySquare();
 

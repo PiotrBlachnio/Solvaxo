@@ -11,6 +11,8 @@
             SudokuSolver(std::string boardString);
 
             bool solve();
+
+            std::string getSolutionString();
         private:
             Board _board;
 
