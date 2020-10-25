@@ -5,6 +5,7 @@
     #include <string>
     #include "board.h"
     #include "square.h"
+    #include "square-validator.h"
 
     class SudokuSolver {
         public:

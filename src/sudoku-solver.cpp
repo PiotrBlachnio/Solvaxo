@@ -15,8 +15,9 @@ bool SudokuSolver::solve() {
 
     for(int i = 1; i <= 9; i++) {
         square->number = i;
+        bool isSquareValid = SquareValidator::isSquareValid(*square, _board);
 
-        if(square->isValid(_board)) {
+        if(isSquareValid) {
             _board.addSquare(*square);
 
             if(solve()) return true;
