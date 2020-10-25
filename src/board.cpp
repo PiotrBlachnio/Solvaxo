@@ -31,6 +31,8 @@ std::string Board::convertBoardToString() {
             output += std::to_string(data[rowIndex][columnIndex]);
         }
     }
+
+    return output;
 }
 
 void Board::convertStringToBoard(std::string input) {

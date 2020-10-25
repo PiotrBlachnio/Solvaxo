@@ -14,7 +14,7 @@
         private:
             Board _board;
 
-            Square* findEmptySquare();
+            std::optional<Square> findEmptySquare();
 
             bool isSquareValid(Square square);
 

@@ -1,45 +1,41 @@
 #include "sudoku-solver.h"
 
-//TODO: Refactor sudoku-solver.cpp
+//TODO: Refactor sudoku-solver.cpp and split into smaller classes and descriptive methods
 
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
 bool SudokuSolver::solve() {
-    int num = 29;
-    int* pointer = &num;
+    std::optional<Square> square = findEmptySquare();
 
-    *pointer = 30;
+    if(!square) return true;
 
-    Square* foundSquare = findEmptySquare();
-    if(foundSquare == NULL) return;
+    for(int i = 1; i <= 9; i++) {
+        square->number = i;
 
-    for(int number = 1; number <= 9; number++) {
-        foundSquare->number = number;
-
-        if(isSquareValid(*foundSquare)) {
-            _board.addSquare(*foundSquare);
+        if(isSquareValid(*square)) {
+            _board.addSquare(*square);
 
             if(solve()) return true;
 
-            foundSquare->number = 0;
-            _board.addSquare(*foundSquare);
+            square->number = 0;
+            _board.addSquare(*square);
         }
     }
 
     return false;
 }
 
-Square* SudokuSolver::findEmptySquare() {
+std::optional<Square> SudokuSolver::findEmptySquare() {
     for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
         for(int columnIndex = 0; columnIndex < _board.data[rowIndex].size(); columnIndex++) {
             if(_board.data[rowIndex][columnIndex] != 0) continue;
 
             Square square(0, rowIndex, columnIndex);
-            return &square;
+            return square;
         }
     }
 
-    return NULL;
+    return {};
 }
 
 bool SudokuSolver::isSquareValid(Square square) {
