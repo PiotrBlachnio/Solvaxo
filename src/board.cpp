@@ -24,7 +24,13 @@ void Board::addSquare(Square square) {
 }
 
 std::string Board::convertBoardToString() {
-
+    std::string output = "";
+    
+    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++) {
+        for(int columnIndex = 0; columnIndex < data[rowIndex].size(); columnIndex++) {
+            output += std::to_string(data[rowIndex][columnIndex]);
+        }
+    }
 }
 
 void Board::convertStringToBoard(std::string input) {
