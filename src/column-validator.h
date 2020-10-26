@@ -10,6 +10,7 @@
             static bool isColumnValid(Square square, Board board);
 
         private:
+            static bool columnContainsDuplicateNumber(Square square, Board board);
             static bool isSameRow(int firstIndex, int secondIndex);
     };
 
