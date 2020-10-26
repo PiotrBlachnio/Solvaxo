@@ -3,11 +3,11 @@
  
     #include "exceptions/invalid-board-string.exception.h"
     #include "square.h"
+    #include "utils.h"
     #include <vector>
     #include <string>
     #include <iostream>
-    #include <regex>
-    
+
     struct Board {
         Board(std::string boardString);
 
@@ -15,14 +15,12 @@
 
         void printBoard();
         void addSquare(Square square);
+        std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
         std::string convertBoardToString();
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;
             const static int ASCII_CODE_BASE = 48;
-
-            void convertStringToBoard(std::string boardString);
-            bool isNumerical(std::string input);
     };
 
 #endif

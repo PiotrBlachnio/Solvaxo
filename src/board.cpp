@@ -4,9 +4,9 @@ Board::Board(std::string boardString) {
     int charactersNumber = boardString.size();
 
     if(charactersNumber != BOARD_CHARACTERS_NUMBER) throw InvalidBoardStringException();
-    if(!isNumerical(boardString)) throw InvalidBoardStringException();
+    if(!Utils::isNumerical(boardString)) throw InvalidBoardStringException();
 
-    convertStringToBoard(boardString);
+    data = convertStringToBoard(boardString);
 }
 
 void Board::printBoard() {
@@ -35,7 +35,8 @@ std::string Board::convertBoardToString() {
     return output;
 }
 
-void Board::convertStringToBoard(std::string input) {
+std::vector<std::vector<int>> Board::convertStringToBoard(std::string input) {
+    std::vector<std::vector<int>> board;
     int currentCharIndex = 0;
 
     for(int i = 0; i < 9; i++) {
@@ -46,14 +47,8 @@ void Board::convertStringToBoard(std::string input) {
             currentCharIndex++;
         }
 
-        data.push_back(row);
+        board.push_back(row);
     }
-}
 
-//TODO: Move it to the utils class
-bool Board::isNumerical(std::string input) {
-    std::smatch match;
-    std::regex reg("^[0-9]*$");
-
-    return std::regex_search(input, match, reg);
+    return board;
 }
