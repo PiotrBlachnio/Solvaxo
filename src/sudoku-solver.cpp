@@ -1,6 +1,7 @@
 #include "sudoku-solver.h"
 
 //TODO: Refactor sudoku-solver.cpp and split into smaller classes and descriptive methods
+//TODO: Add more test cases to solve method
 
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
@@ -30,6 +31,7 @@ bool SudokuSolver::solve() {
     return false;
 }
 
+//TODO: Move to board.cpp and add tests
 std::optional<Square> SudokuSolver::findEmptySquare() {
     for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
         for(int columnIndex = 0; columnIndex < _board.data[rowIndex].size(); columnIndex++) {

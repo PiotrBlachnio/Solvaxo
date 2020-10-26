@@ -41,6 +41,19 @@ TEST_CASE("Sudoku solver") {
 
                 REQUIRE(expected == actual);
             }
+
+            SECTION("Case 3") {
+                std::string input = "004083002051004300000096710120800006040000500830607900060309040007000205090050803";
+
+                SudokuSolver sudokuSolver(input);
+                sudokuSolver.solve();
+
+                std::string expected = "974183652651274389283596714129835476746912538835647921568329147317468295492751863";
+
+                std::string actual = sudokuSolver.getSolutionString();
+
+                REQUIRE(expected == actual);
+            }
         }
     }
 }
