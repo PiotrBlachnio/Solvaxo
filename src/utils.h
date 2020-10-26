@@ -6,7 +6,9 @@
 
     class Utils {
         public:
-            bool isNumerical(std::string input);
+            static bool isNumerical(std::string input);
+        private:
+            inline static const std::string IS_NUMERICAL_REGEX = "^[0-9]*$";
     };
 
 #endif
