@@ -52,3 +52,16 @@ std::vector<std::vector<int>> Board::convertStringToBoard(std::string input) {
 
     return board;
 }
+
+std::optional<Square> Board::findEmptySquare() {
+    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++) {
+        for(int columnIndex = 0; columnIndex < data[rowIndex].size(); columnIndex++) {
+            if(data[rowIndex][columnIndex] != 0) continue;
+
+            Square square(0, rowIndex, columnIndex);
+            return square;
+        }
+    }
+
+    return {};
+}

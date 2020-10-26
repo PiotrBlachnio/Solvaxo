@@ -1,8 +1,5 @@
 #include "sudoku-solver.h"
 
-//TODO: Refactor sudoku-solver.cpp and split into smaller classes and descriptive methods
-//TODO: Add more test cases to solve method
-
 SudokuSolver::SudokuSolver(std::string boardString) : _board(boardString) {}
 
 std::string SudokuSolver::getSolutionString() {
@@ -10,7 +7,7 @@ std::string SudokuSolver::getSolutionString() {
 }
 
 bool SudokuSolver::solve() {
-    std::optional<Square> square = findEmptySquare();
+    std::optional<Square> square = _board.findEmptySquare();
 
     if(!square) return true;
 
@@ -29,18 +26,4 @@ bool SudokuSolver::solve() {
     }
 
     return false;
-}
-
-//TODO: Move to board.cpp and add tests
-std::optional<Square> SudokuSolver::findEmptySquare() {
-    for(int rowIndex = 0; rowIndex < _board.data.size(); rowIndex++) {
-        for(int columnIndex = 0; columnIndex < _board.data[rowIndex].size(); columnIndex++) {
-            if(_board.data[rowIndex][columnIndex] != 0) continue;
-
-            Square square(0, rowIndex, columnIndex);
-            return square;
-        }
-    }
-
-    return {};
 }

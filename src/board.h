@@ -15,6 +15,8 @@
 
         void printBoard();
         void insertSquare(Square square);
+
+        std::optional<Square> findEmptySquare();
         std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
         std::string convertBoardToString();
 
