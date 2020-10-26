@@ -11,6 +11,7 @@
     struct Board {
         Board(std::string boardString);
 
+        const static int ROW_LENGTH = 9;
         std::vector<std::vector<int>> data;
 
         void printBoard();
@@ -19,6 +20,7 @@
         std::optional<Square> findEmptySquare();
         std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
         std::string convertBoardToString();
+        std::vector<int> getRowByIndex(int index);
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;

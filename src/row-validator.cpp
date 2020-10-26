@@ -1,13 +1,25 @@
 #include "row-validator.h"
 
 bool RowValidator::isRowValid(Square square, Board board) {
-    std::vector<int> columns = board.data[square.rowIndex];
+    std::vector<int> row = board.getRowByIndex(square.rowIndex);
 
-    for(int columnIndex = 0; columnIndex < columns.size(); columnIndex++) {
-        int number = columns[columnIndex];
+    return rowContainsDuplicateNumber(row, square);
+}
 
-        if(number == square.number && columnIndex != square.columnIndex) return false;
+bool RowValidator::isDuplicate(int firstNumber, int secondNumber) {
+    return firstNumber == secondNumber;
+}
+
+bool RowValidator::isSameColumn(int firstIndex, int secondIndex) {
+    return firstIndex == secondIndex;
+}
+
+bool RowValidator::rowContainsDuplicateNumber(std::vector<int> row, Square square) {
+    for(int index = 0; index < Board::ROW_LENGTH; index++) {
+        int number = row[index];
+
+        if(isDuplicate(square.number, number) && !isSameColumn(index, square.columnIndex)) return true;
     }
 
-    return true;
+    return false;
 }
