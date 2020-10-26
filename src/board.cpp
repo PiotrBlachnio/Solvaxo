@@ -50,6 +50,7 @@ void Board::convertStringToBoard(std::string input) {
     }
 }
 
+//TODO: Move it to the utils class
 bool Board::isNumerical(std::string input) {
     std::smatch match;
     std::regex reg("^[0-9]*$");
