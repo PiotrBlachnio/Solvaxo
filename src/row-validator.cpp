@@ -3,15 +3,7 @@
 bool RowValidator::isRowValid(Square square, Board board) {
     std::vector<int> row = board.getRowByIndex(square.rowIndex);
 
-    return rowContainsDuplicateNumber(row, square);
-}
-
-bool RowValidator::isDuplicate(int firstNumber, int secondNumber) {
-    return firstNumber == secondNumber;
-}
-
-bool RowValidator::isSameColumn(int firstIndex, int secondIndex) {
-    return firstIndex == secondIndex;
+    return !rowContainsDuplicateNumber(row, square);
 }
 
 bool RowValidator::rowContainsDuplicateNumber(std::vector<int> row, Square square) {
@@ -22,4 +14,12 @@ bool RowValidator::rowContainsDuplicateNumber(std::vector<int> row, Square squar
     }
 
     return false;
+}
+
+bool RowValidator::isDuplicate(int firstNumber, int secondNumber) {
+    return firstNumber == secondNumber;
+}
+
+bool RowValidator::isSameColumn(int firstIndex, int secondIndex) {
+    return firstIndex == secondIndex;
 }
