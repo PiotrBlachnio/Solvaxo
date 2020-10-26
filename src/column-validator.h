@@ -7,6 +7,10 @@
     class ColumnValidator {
         public:
             static bool isColumnValid(Square square, Board board);
+
+        private:
+            static bool isDuplicate(int firstNumber, int secondNumber);
+            static bool isSameRow(int firstIndex, int secondIndex);
     };
 
 #endif
