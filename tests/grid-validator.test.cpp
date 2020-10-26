@@ -7,7 +7,7 @@ TEST_CASE("Grid validator") {
     Board board("305420810487901506029056374850793041613208957074065280241309065508670192096512408");
 
     SECTION("IsGridValid") {
-        SECTION("Should return true when the Grid does not contain a duplicate number") {
+        SECTION("Should return true when the grid does not contain a duplicate number") {
             SECTION("Case 1") {
                 Square square(1, 2, 0);
 
@@ -33,7 +33,7 @@ TEST_CASE("Grid validator") {
             }
         }
 
-        SECTION("Should return false when the Grid contains a duplicate number") {
+        SECTION("Should return false when the grid contains a duplicate number") {
             SECTION("Case 1") {
                 Square square(5, 2, 0);
 
