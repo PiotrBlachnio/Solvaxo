@@ -9,10 +9,10 @@ bool ColumnValidator::columnContainsDuplicateNumber(Square square, Board board) 
         std::vector<int> row = board.getRowByIndex(index);
         int number = row[square.columnIndex];
 
-        if(isDuplicate(square.number, number) && !isSameRow(square.rowIndex, index)) return false;
+        if(isDuplicate(square.number, number) && !isSameRow(square.rowIndex, index)) return true;
     }
 
-    return true;
+    return false;
 }
 
 bool ColumnValidator::isSameRow(int firstIndex, int secondIndex) {
