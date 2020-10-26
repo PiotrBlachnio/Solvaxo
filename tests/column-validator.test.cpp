@@ -32,5 +32,31 @@ TEST_CASE("Column validator") {
                 REQUIRE(actual);
             }
         }
+
+        SECTION("Should return false when the column contains a duplicate number") {
+            SECTION("Case 1") {
+                Square square(5, 2, 0);
+
+                bool actual = ColumnValidator::isColumnValid(square, board);
+
+                REQUIRE_FALSE(actual);
+            }
+
+            SECTION("Case 2") {
+                Square square(6, 5, 8);
+
+                bool actual = ColumnValidator::isColumnValid(square, board);
+
+                REQUIRE_FALSE(actual);
+            }
+
+            SECTION("Case 3") {
+                Square square(1, 8, 7);
+
+                bool actual = ColumnValidator::isColumnValid(square, board);
+
+                REQUIRE_FALSE(actual);
+            }
+        }
     }
 }
