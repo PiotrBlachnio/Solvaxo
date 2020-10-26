@@ -5,14 +5,10 @@ bool ColumnValidator::isColumnValid(Square square, Board board) {
         std::vector<int> row = board.getRowByIndex(index);
         int number = row[square.columnIndex];
 
-        if(number == square.number && index != square.rowIndex) return false;
+        if(isDuplicate(square.number, number) && !isSameRow(square.rowIndex, index)) return false;
     }
 
     return true;
-}
-
-bool Columnalidator::isDuplicate(int firstNumber, int secondNumber) {
-    return firstNumber == secondNumber;
 }
 
 bool ColumnValidator::isSameRow(int firstIndex, int secondIndex) {

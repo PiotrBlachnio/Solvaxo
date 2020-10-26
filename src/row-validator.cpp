@@ -16,10 +16,6 @@ bool RowValidator::rowContainsDuplicateNumber(std::vector<int> row, Square squar
     return false;
 }
 
-bool RowValidator::isDuplicate(int firstNumber, int secondNumber) {
-    return firstNumber == secondNumber;
-}
-
 bool RowValidator::isSameColumn(int firstIndex, int secondIndex) {
     return firstIndex == secondIndex;
 }
