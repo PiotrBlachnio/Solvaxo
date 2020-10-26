@@ -18,12 +18,12 @@ bool SudokuSolver::solve() {
         bool isSquareValid = SquareValidator::isSquareValid(*square, _board);
 
         if(isSquareValid) {
-            _board.addSquare(*square);
+            _board.insertSquare(*square);
 
             if(solve()) return true;
 
             square->number = 0;
-            _board.addSquare(*square);
+            _board.insertSquare(*square);
         }
     }
 

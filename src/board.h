@@ -14,7 +14,7 @@
         std::vector<std::vector<int>> data;
 
         void printBoard();
-        void addSquare(Square square);
+        void insertSquare(Square square);
         std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
         std::string convertBoardToString();
 

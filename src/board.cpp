@@ -19,7 +19,7 @@ void Board::printBoard() {
     }
 }
 
-void Board::addSquare(Square square) {
+void Board::insertSquare(Square square) {
     data[square.rowIndex][square.columnIndex] = square.number;
 }
 

@@ -1,5 +1,6 @@
 #include "../lib/catch.h"
 #include "../src/board.h"
+#include "../src/square.h"
 #include "../src/exceptions/invalid-board-string.exception.h"
 
 TEST_CASE("Board") {
@@ -17,7 +18,7 @@ TEST_CASE("Board") {
         }
     }
 
-    SECTION("Convert string to board") {
+    SECTION("Convert_String_To_Board") {
         SECTION("Should transform board string to the vector board and return it") {
             std::string input = "305420810487901506029056374850793041613208957074065280241309065508670192096512408";
             
@@ -36,6 +37,34 @@ TEST_CASE("Board") {
             };
 
             std::vector<std::vector<int>> actual = board.convertStringToBoard(input);
+
+            REQUIRE(expected == actual);
+        }
+    }
+
+    SECTION("Convert_Board_To_String") {
+        SECTION("Should transform vector board to the corresponding string and return it") {
+            std::string expected = "305420810487901506029056374850793041613208957074065280241309065508670192096512408";
+
+            Board board(expected);
+
+            std::string actual = board.convertBoardToString();
+
+            REQUIRE(expected == actual);
+        }
+    }
+
+    SECTION("Insert_Square") {
+        SECTION("Should update provided square in the data field") {
+            std::string input = "305420810487901506029056374850793041613208957074065280241309065508670192096512408";
+
+            Board board(input);
+
+            Square square(9, 0, 8);
+            board.insertSquare(square);
+
+            int expected = 9;
+            int actual = board.data[0][8];
 
             REQUIRE(expected == actual);
         }
