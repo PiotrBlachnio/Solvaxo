@@ -69,4 +69,26 @@ TEST_CASE("Board") {
             REQUIRE(expected == actual);
         }
     }
+
+    SECTION("Find empty square") {
+        SECTION("Should return square when there is at least one zero number on the board") {
+            std::string input = "305420810487901506029056374850793041613208957074065280241309065508670192096512408";
+
+            Board board(input);
+
+            std::optional<Square> expected = board.findEmptySquare();
+
+            REQUIRE(expected);
+        }
+
+        SECTION("Should return an empty object when there isn't any zero number on the board") {
+            std::string input = "672435198549178362831629547368951274917243856254867931193784625486592713725316489";
+
+            Board board(input);
+
+            std::optional<Square> expected = board.findEmptySquare();
+
+            REQUIRE_FALSE(expected);
+        }
+    }
 }
