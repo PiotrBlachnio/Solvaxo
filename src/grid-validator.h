@@ -10,6 +10,7 @@
             static bool isGridValid(Square square, Board board);
 
         private:
+            static bool gridContainsDuplicateNumber(int gridRowIndex, int gridColumnIndex, Square square, Board board);
             static int convertToGridIndex(int index);
             static bool isSamePosition(Square square, int rowIndex, int columnIndex);
     };

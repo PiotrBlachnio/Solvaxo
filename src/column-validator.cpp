@@ -6,8 +6,7 @@ bool ColumnValidator::isColumnValid(Square square, Board board) {
 
 bool ColumnValidator::columnContainsDuplicateNumber(Square square, Board board) {
     for(int index = 0; index < Board::ROW_LENGTH; index++) {
-        std::vector<int> row = board.getRowByIndex(index);
-        int number = row[square.columnIndex];
+        int number = board.getNumberByIndexes(index, square.columnIndex);
 
         if(isDuplicate(square.number, number) && !isSameRow(square.rowIndex, index)) return true;
     }
