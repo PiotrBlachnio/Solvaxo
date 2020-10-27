@@ -12,11 +12,11 @@ int GridValidator::convertToGridIndex(int index) {
 }
 
 bool GridValidator::gridContainsDuplicateNumber(int gridRowIndex, int gridColumnIndex, Square square, Board board) {
-    for(;gridRowIndex < gridRowIndex + 3; gridRowIndex++) {
-        for(;gridColumnIndex < gridColumnIndex + 3; gridColumnIndex++) {
-            int number = board.getNumberByIndexes(gridRowIndex, gridColumnIndex);
+    for(int rowIndex = gridRowIndex; rowIndex < gridRowIndex + 3; rowIndex++) {
+        for(int columnIndex = gridColumnIndex; columnIndex < gridColumnIndex + 3; columnIndex++) {
+            int number = board.getNumberByIndexes(rowIndex, columnIndex);
 
-            if(isDuplicate(square.number, number) && !isSamePosition(square, gridRowIndex, gridColumnIndex)) return true;
+            if(isDuplicate(square.number, number) && !isSamePosition(square, rowIndex, columnIndex)) return true;
         }
     }
 
