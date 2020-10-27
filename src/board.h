@@ -21,6 +21,7 @@
         std::vector<std::vector<int>> convertStringToBoard(std::string boardString);
         std::string convertBoardToString();
         std::vector<int> getRowByIndex(int index);
+        int getNumberByIndexes(int rowIndex, int columnIndex);
 
         private:
             const static int BOARD_CHARACTERS_NUMBER = 81;

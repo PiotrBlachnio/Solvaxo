@@ -69,3 +69,7 @@ std::optional<Square> Board::findEmptySquare() {
 std::vector<int> Board::getRowByIndex(int index) {
     return data[index];
 }
+
+int Board::getNumberByIndexes(int rowIndex, int columnIndex) {
+    return data[rowIndex][columnIndex];
+}
