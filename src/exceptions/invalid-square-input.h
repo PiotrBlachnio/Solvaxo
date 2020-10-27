@@ -1,5 +1,5 @@
-#ifndef INVALID_BOARD_STRING_EXCEPTION_H
-#define INVALID_BOARD_STRING_EXCEPTION_H
+#ifndef INVALID_SQUARE_INPUT_EXCEPTION_H
+#define INVALID_SQUARE_INPUT_EXCEPTION_H
 
     #include <exception>
     #include <string>
