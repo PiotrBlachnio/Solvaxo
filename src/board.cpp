@@ -3,52 +3,39 @@
 Board::Board(std::string boardString) {
     int charactersNumber = boardString.size();
 
-    if(charactersNumber != BOARD_CHARACTERS_NUMBER) throw InvalidBoardStringException();
+    if(!hasValidCharactersNumber(charactersNumber)) throw InvalidBoardStringException();
     if(!Utils::isNumerical(boardString)) throw InvalidBoardStringException();
 
     data = convertStringToBoard(boardString);
-}
-
-void Board::printBoard() {
-    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++) {
-        if(rowIndex != 0) std::cout << "\n - - - - - - - - -\n";
-
-        for(int square : data[rowIndex]) {
-            std::cout << square << " ";
-        }
-    }
 }
 
 void Board::insertSquare(Square square) {
     data[square.rowIndex][square.columnIndex] = square.number;
 }
 
+std::vector<int> Board::getRowByIndex(int index) {
+    return data[index];
+}
+
+int Board::getNumberByIndexes(int rowIndex, int columnIndex) {
+    std::vector<int> row = getRowByIndex(rowIndex);
+    int number = row[columnIndex];
+    
+    return number;
+}
+
 std::string Board::convertBoardToString() {
     std::string output = "";
     
-    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++) {
-        for(int columnIndex = 0; columnIndex < data[rowIndex].size(); columnIndex++) {
-            output += std::to_string(data[rowIndex][columnIndex]);
-        }
-    }
+    appendBoardToString(output);
 
     return output;
 }
 
-std::vector<std::vector<int>> Board::convertStringToBoard(std::string input) {
+std::vector<std::vector<int>> Board::convertStringToBoard(std::string inputString) {
     std::vector<std::vector<int>> board;
-    int currentCharIndex = 0;
-
-    for(int i = 0; i < 9; i++) {
-        std::vector<int> row;
-
-        for(int j = 0; j < 9; j++) {
-            row.push_back((input[currentCharIndex] - ASCII_CODE_BASE));
-            currentCharIndex++;
-        }
-
-        board.push_back(row);
-    }
+    
+    appendStringToBoard(board, inputString);
 
     return board;
 }
@@ -66,10 +53,36 @@ std::optional<Square> Board::findEmptySquare() {
     return {};
 }
 
-std::vector<int> Board::getRowByIndex(int index) {
-    return data[index];
+bool Board::hasValidCharactersNumber(int charactersNumber) {
+    return charactersNumber == BOARD_CHARACTERS_NUMBER;
 }
 
-int Board::getNumberByIndexes(int rowIndex, int columnIndex) {
-    return data[rowIndex][columnIndex];
+void Board::appendBoardToString(std::string& output) {
+    for(int rowIndex = 0; rowIndex < ROW_LENGTH; rowIndex++) {
+        for(int columnIndex = 0; columnIndex < ROW_LENGTH; columnIndex++) {
+            int number = getNumberByIndexes(rowIndex, columnIndex);
+            output += std::to_string(number);
+        }
+    }
+}
+
+void Board::appendStringToBoard(std::vector<std::vector<int>>& board, std::string inputString) {
+    int currentCharIndex = 0;
+
+    for(int i = 0; i < 9; i++) {
+        std::vector<int> row;
+
+        for(int j = 0; j < 9; j++) {
+            char character = inputString[currentCharIndex];
+            row.push_back(convertCharToNumber(character));
+
+            currentCharIndex++;
+        }
+
+        board.push_back(row);
+    }
+}
+
+int Board::convertCharToNumber(char input) {
+    return input - ASCII_CODE_BASE;
 }
