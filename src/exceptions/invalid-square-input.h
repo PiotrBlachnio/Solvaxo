@@ -4,7 +4,7 @@
     #include <exception>
     #include <string>
 
-    class InvalidBoardStringException : std::exception {
+    class InvalidSquareInputException : std::exception {
         public:
             virtual const char* what() const throw();
     };
