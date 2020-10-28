@@ -11,8 +11,8 @@ bool SudokuSolver::solve() {
 
     if(!square) return true;
 
-    for(int i = 1; i <= 9; i++) {
-        square->number = i;
+    for(int number = 1; number <= 9; number++) {
+        square->number = number;
         bool isSquareValid = SquareValidator::isSquareValid(*square, _board);
 
         if(isSquareValid) {
