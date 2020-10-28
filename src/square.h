@@ -1,7 +1,7 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 
-    #include "exceptions/invalid-square-input.h"
+    #include "exceptions/invalid-square-input.exception.h"
     
     struct Square {
         int number;
