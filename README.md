@@ -3,7 +3,7 @@ Solvaxo is a very fast and efficient sudoku solver. It's based on backtracking a
 
 ## Technologies used
 * C++
-* Catch2 - for testing purpose
+* Catch2 - for the testing purpose
 * Backtracking algorithm
 
 ## Running locally
